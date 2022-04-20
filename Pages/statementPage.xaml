@@ -1,0 +1,36 @@
+﻿<Page x:Class="curs_reborn.Pages.statementPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:curs_reborn.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="400" d:DesignWidth="600"
+      Title="statementPage">
+
+    <Grid>
+        <StackPanel  HorizontalAlignment="Left" Margin="20" Width="250">
+            <Button Click="fillStatement" Content="Сгенерировать" Style="{StaticResource StatementButton}"/>
+            <TextBlock Text="Группа" Style="{StaticResource statementText}"/>
+            <ComboBox x:Name="comboGroups"  Style="{StaticResource statementComboBox }"/>
+            <TextBlock Text="Семестр" Style="{StaticResource statementText}"/>
+            <ComboBox x:Name="comboTerm" Style="{StaticResource statementComboBox}"/>
+            <TextBlock Text="Учебный год" Style="{StaticResource statementText}"/>
+            <ComboBox x:Name="comboYear" Style="{StaticResource statementComboBox}"/>
+            <Button Click="save" Content="Сохранить" Style="{StaticResource StatementButton}"/>
+            <Button Click="exit" Content="Назад" Style="{StaticResource StatementButton}"/>
+        </StackPanel>
+        <ListView x:Name="LV" Width="300" HorizontalAlignment="Right" Margin="10">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn DisplayMemberBinding="{Binding surname}" Width ="Auto" Header="Фамилия"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding mark}"  Width ="Auto" Header="Оценка"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding grant}"  Width ="Auto" Header="Тип"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding cost}" Width ="Auto"  Header="Стоимость"/>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Page>

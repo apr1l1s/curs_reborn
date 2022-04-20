@@ -1,0 +1,40 @@
+﻿<Page x:Class="curs_reborn.Pages.adminPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:curs_reborn.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="adminPage">
+    <Page.Resources>
+        <Style x:Key="adminPanel" TargetType="StackPanel">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Height" Value="Auto"/>
+        </Style>
+        <Style x:Key="adminText" TargetType="TextBlock">
+            <Setter Property="Width" Value="Auto"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="26"/>
+        </Style>
+        <Style x:Key="adminButton" TargetType="Button">
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+        <Style x:Key="adminComboBox" TargetType="ComboBox">
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="20"/>
+        </Style>
+    </Page.Resources>
+    <Grid>
+        <StackPanel Style="{StaticResource adminPanel}">
+            <TextBlock Text="Выберите таблицу для изменения" Style="{DynamicResource adminText}"/>
+            <ComboBox x:Name="CB" Style="{StaticResource adminComboBox}"/>
+            <Button Click="edit" Content="Редактировать" Style="{StaticResource adminButton}"/>
+            <Button Click="exit" Content="Назад" Style="{StaticResource adminButton}"/>
+        </StackPanel>
+    </Grid>
+</Page>
