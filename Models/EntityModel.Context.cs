@@ -34,7 +34,6 @@ namespace curs_reborn.Models
         public virtual DbSet<mark> marks { get; set; }
         public virtual DbSet<student> students { get; set; }
         public virtual DbSet<subject> subjects { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<user> users { get; set; }
     
         [DbFunction("curs_databaseEntities", "getBestStudentsID")]

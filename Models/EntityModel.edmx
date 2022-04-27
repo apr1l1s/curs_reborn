@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище curs_databaseModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище EntityModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="documents">
           <Key>
             <PropertyRef Name="document_id" />
@@ -77,16 +77,6 @@
           </Key>
           <Property Name="subject_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="title" Type="nvarchar" MaxLength="100" Nullable="false" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="users">
           <Key>
@@ -233,7 +223,7 @@
             </CollectionType>
           </ReturnType>
         </Function>
-        <EntityContainer Name="Хранилище curs_databaseModelContainer">
+        <EntityContainer Name="Хранилище EntityModelContainer">
           <EntitySet Name="documents" EntityType="Self.documents" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="grants" EntityType="Self.grants" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="groups" EntityType="Self.groups" Schema="dbo" store:Type="Tables" />
@@ -242,7 +232,6 @@
           <EntitySet Name="statement" EntityType="Self.statement" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="students" EntityType="Self.students" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="subjects" EntityType="Self.subjects" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_grant_statement" Association="Self.FK_grant_statement">
             <End Role="grants" EntitySet="grants" />
@@ -277,7 +266,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="curs_databaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="EntityModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <ComplexType Name="getBestStudentsID_Result">
           <Property Name="student_id" Type="Int32" Nullable="false" />
         </ComplexType>
@@ -370,16 +359,6 @@
           <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="marks" Relationship="Self.FK_subject_id" FromRole="subjects" ToRole="marks" />
         </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
         <EntityType Name="user">
           <Key>
             <PropertyRef Name="user_id" />
@@ -461,7 +440,6 @@
           <EntitySet Name="marks" EntityType="Self.mark" />
           <EntitySet Name="students" EntityType="Self.student" />
           <EntitySet Name="subjects" EntityType="Self.subject" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="users" EntityType="Self.user" />
           <AssociationSet Name="FK_student_documents" Association="Self.FK_student_documents">
             <End Role="students" EntitySet="students" />
@@ -487,19 +465,19 @@
             <End Role="grants" EntitySet="grants" />
             <End Role="students" EntitySet="students" />
           </AssociationSet>
-          <FunctionImport Name="getBestStudentsID" IsComposable="true" ReturnType="Collection(curs_databaseModel.getBestStudentsID_Result)">
+          <FunctionImport Name="getBestStudentsID" IsComposable="true" ReturnType="Collection(EntityModel.getBestStudentsID_Result)">
             <Parameter Name="academ_year" Mode="In" Type="String" />
             <Parameter Name="term" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="getNormalStudentsID" IsComposable="true" ReturnType="Collection(curs_databaseModel.getNormalStudentsID_Result)">
+          <FunctionImport Name="getNormalStudentsID" IsComposable="true" ReturnType="Collection(EntityModel.getNormalStudentsID_Result)">
             <Parameter Name="academ_year" Mode="In" Type="String" />
             <Parameter Name="term" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="getSocialStudentsID" IsComposable="true" ReturnType="Collection(curs_databaseModel.getSocialStudentsID_Result)">
+          <FunctionImport Name="getSocialStudentsID" IsComposable="true" ReturnType="Collection(EntityModel.getSocialStudentsID_Result)">
             <Parameter Name="academ_year" Mode="In" Type="String" />
             <Parameter Name="term" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="selectStatement" IsComposable="true" ReturnType="Collection(curs_databaseModel.selectStatement_Result)">
+          <FunctionImport Name="selectStatement" IsComposable="true" ReturnType="Collection(EntityModel.selectStatement_Result)">
             <Parameter Name="term" Mode="In" Type="Int32" />
             <Parameter Name="academ_year" Mode="In" Type="String" />
             <Parameter Name="group_title" Mode="In" Type="String" />
@@ -514,9 +492,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище curs_databaseModelContainer" CdmEntityContainer="curs_databaseEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище EntityModelContainer" CdmEntityContainer="curs_databaseEntities">
           <EntitySetMapping Name="documents">
-            <EntityTypeMapping TypeName="curs_databaseModel.document">
+            <EntityTypeMapping TypeName="EntityModel.document">
               <MappingFragment StoreEntitySet="documents">
                 <ScalarProperty Name="document_id" ColumnName="document_id" />
                 <ScalarProperty Name="student_id" ColumnName="student_id" />
@@ -526,7 +504,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="grants">
-            <EntityTypeMapping TypeName="curs_databaseModel.grant">
+            <EntityTypeMapping TypeName="EntityModel.grant">
               <MappingFragment StoreEntitySet="grants">
                 <ScalarProperty Name="grant_id" ColumnName="grant_id" />
                 <ScalarProperty Name="type" ColumnName="type" />
@@ -537,7 +515,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="groups">
-            <EntityTypeMapping TypeName="curs_databaseModel.group">
+            <EntityTypeMapping TypeName="EntityModel.group">
               <MappingFragment StoreEntitySet="groups">
                 <ScalarProperty Name="group_id" ColumnName="group_id" />
                 <ScalarProperty Name="title" ColumnName="title" />
@@ -545,7 +523,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="histories">
-            <EntityTypeMapping TypeName="curs_databaseModel.history">
+            <EntityTypeMapping TypeName="EntityModel.history">
               <MappingFragment StoreEntitySet="history">
                 <ScalarProperty Name="history_id" ColumnName="history_id" />
                 <ScalarProperty Name="group_id" ColumnName="group_id" />
@@ -557,7 +535,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="marks">
-            <EntityTypeMapping TypeName="curs_databaseModel.mark">
+            <EntityTypeMapping TypeName="EntityModel.mark">
               <MappingFragment StoreEntitySet="marks">
                 <ScalarProperty Name="student_id" ColumnName="student_id" />
                 <ScalarProperty Name="subject_id" ColumnName="subject_id" />
@@ -567,7 +545,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="students">
-            <EntityTypeMapping TypeName="curs_databaseModel.student">
+            <EntityTypeMapping TypeName="EntityModel.student">
               <MappingFragment StoreEntitySet="students">
                 <ScalarProperty Name="student_id" ColumnName="student_id" />
                 <ScalarProperty Name="surname" ColumnName="surname" />
@@ -578,26 +556,15 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="subjects">
-            <EntityTypeMapping TypeName="curs_databaseModel.subject">
+            <EntityTypeMapping TypeName="EntityModel.subject">
               <MappingFragment StoreEntitySet="subjects">
                 <ScalarProperty Name="subject_id" ColumnName="subject_id" />
                 <ScalarProperty Name="title" ColumnName="title" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="curs_databaseModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="users">
-            <EntityTypeMapping TypeName="curs_databaseModel.user">
+            <EntityTypeMapping TypeName="EntityModel.user">
               <MappingFragment StoreEntitySet="users">
                 <ScalarProperty Name="user_id" ColumnName="user_id" />
                 <ScalarProperty Name="login" ColumnName="login" />
@@ -606,7 +573,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="statement" TypeName="curs_databaseModel.statement" StoreEntitySet="statement">
+          <AssociationSetMapping Name="statement" TypeName="EntityModel.statement" StoreEntitySet="statement">
             <EndProperty Name="grants">
               <ScalarProperty Name="grant_id" ColumnName="grant_id" />
             </EndProperty>
@@ -614,30 +581,30 @@
               <ScalarProperty Name="student_id" ColumnName="student_id" />
             </EndProperty>
           </AssociationSetMapping>
-          <FunctionImportMapping FunctionName="Хранилище curs_databaseModel.getBestStudentsID" FunctionImportName="getBestStudentsID">
+          <FunctionImportMapping FunctionName="Хранилище EntityModel.getBestStudentsID" FunctionImportName="getBestStudentsID">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="curs_databaseModel.getBestStudentsID_Result">
+              <ComplexTypeMapping TypeName="EntityModel.getBestStudentsID_Result">
                 <ScalarProperty Name="student_id" ColumnName="student_id" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionName="Хранилище curs_databaseModel.getNormalStudentsID" FunctionImportName="getNormalStudentsID">
+          <FunctionImportMapping FunctionName="Хранилище EntityModel.getNormalStudentsID" FunctionImportName="getNormalStudentsID">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="curs_databaseModel.getNormalStudentsID_Result">
+              <ComplexTypeMapping TypeName="EntityModel.getNormalStudentsID_Result">
                 <ScalarProperty Name="student_id" ColumnName="student_id" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionName="Хранилище curs_databaseModel.getSocialStudentsID" FunctionImportName="getSocialStudentsID">
+          <FunctionImportMapping FunctionName="Хранилище EntityModel.getSocialStudentsID" FunctionImportName="getSocialStudentsID">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="curs_databaseModel.getSocialStudentsID_Result">
+              <ComplexTypeMapping TypeName="EntityModel.getSocialStudentsID_Result">
                 <ScalarProperty Name="student_id" ColumnName="student_id" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionName="Хранилище curs_databaseModel.selectStatement" FunctionImportName="selectStatement">
+          <FunctionImportMapping FunctionName="Хранилище EntityModel.selectStatement" FunctionImportName="selectStatement">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="curs_databaseModel.selectStatement_Result">
+              <ComplexTypeMapping TypeName="EntityModel.selectStatement_Result">
                 <ScalarProperty Name="surname" ColumnName="surname" />
                 <ScalarProperty Name="mark" ColumnName="mark" />
                 <ScalarProperty Name="grant" ColumnName="grant" />
@@ -645,7 +612,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="fillStatement" FunctionName="Хранилище curs_databaseModel.fillStatement" />
+          <FunctionImportMapping FunctionImportName="fillStatement" FunctionName="Хранилище EntityModel.fillStatement" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

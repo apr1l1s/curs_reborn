@@ -27,9 +27,7 @@ namespace curs_reborn.Pages
             mainWindow = _main;
             InitializeComponent();
             fillCB();
-            using (curs_databaseEntities db = new curs_databaseEntities())
-            {
-            }
+            
         }
         public void fillCB()
         {
@@ -49,7 +47,10 @@ namespace curs_reborn.Pages
                 switch(CB.SelectedIndex)
                 {
                     case 0:
-                        MessageBox.Show("Пользователи");
+                        mainWindow.openPage(MainWindow.pages.users);
+                        break;
+                    case 1:
+                        mainWindow.openPage(MainWindow.pages.users);
                         break;
                 }
             }

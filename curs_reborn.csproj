@@ -71,50 +71,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Models\CursModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CursModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\document.cs">
-      <DependentUpon>CursModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\getBestStudentsID_Result.cs">
-      <DependentUpon>CursModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\getNormalStudentsID_Result.cs">
-      <DependentUpon>CursModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\getSocialStudentsID_Result.cs">
-      <DependentUpon>CursModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\grant.cs">
-      <DependentUpon>CursModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\group.cs">
-      <DependentUpon>CursModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\history.cs">
-      <DependentUpon>CursModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\mark.cs">
-      <DependentUpon>CursModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\selectStatement_Result.cs">
-      <DependentUpon>CursModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\student.cs">
-      <DependentUpon>CursModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\subject.cs">
-      <DependentUpon>CursModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>CursModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\user.cs">
-      <DependentUpon>CursModel.tt</DependentUpon>
-    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -123,25 +79,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Models\CursModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CursModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CursModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CursModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Pages\adminPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\editPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -153,19 +95,74 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\usersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\document.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\getBestStudentsID_Result.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\getNormalStudentsID_Result.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\getSocialStudentsID_Result.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\grant.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\group.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\history.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\mark.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\selectStatement_Result.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\student.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\subject.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\user.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Pages\adminPage.xaml.cs">
       <DependentUpon>adminPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\editPage.xaml.cs">
-      <DependentUpon>editPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\loginPage.xaml.cs">
       <DependentUpon>loginPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\statementPage.xaml.cs">
       <DependentUpon>statementPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\usersPage.xaml.cs">
+      <DependentUpon>usersPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -184,12 +181,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Models\CursModel.edmx">
+    <EntityDeploy Include="Models\EntityModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CursModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>EntityModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\CursModel.edmx.diagram">
-      <DependentUpon>CursModel.edmx</DependentUpon>
+    <None Include="Models\EntityModel.edmx.diagram">
+      <DependentUpon>EntityModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -207,19 +204,19 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Content Include="Models\CursModel.Context.tt">
+    <Content Include="Models\EntityModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CursModel.edmx</DependentUpon>
-      <LastGenOutput>CursModel.Context.cs</LastGenOutput>
+      <DependentUpon>EntityModel.edmx</DependentUpon>
+      <LastGenOutput>EntityModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\CursModel.tt">
+    <Content Include="Models\EntityModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CursModel.edmx</DependentUpon>
-      <LastGenOutput>CursModel.cs</LastGenOutput>
+      <DependentUpon>EntityModel.edmx</DependentUpon>
+      <LastGenOutput>EntityModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

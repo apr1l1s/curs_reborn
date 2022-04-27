@@ -12,17 +12,22 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using curs_reborn.Models;
 namespace curs_reborn.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для editPage.xaml
+    /// Логика взаимодействия для UsersPage.xaml
     /// </summary>
-    public partial class editPage : Page
+    public partial class usersPage : Page
     {
-        public editPage()
+        MainWindow mainWindow;
+        public usersPage(MainWindow _main)
         {
             InitializeComponent();
+            mainWindow = _main;
+            using (curs_databaseEntities db = new curs_databaseEntities())
+                LV.ItemsSource = (from u in db.users select u).ToList();
+            
         }
     }
 }
