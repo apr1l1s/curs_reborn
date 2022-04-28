@@ -26,8 +26,25 @@ namespace curs_reborn.Pages
             InitializeComponent();
             mainWindow = _main;
             using (curs_databaseEntities db = new curs_databaseEntities())
-                LV.ItemsSource = (from u in db.users select u).ToList();
+                DG.ItemsSource = (from u in db.users select u).ToList();
             
+        }
+
+        private void addUserEvent(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void removeUserEvent(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void editUserEvent(object sender, RoutedEventArgs e)
+        {
+            DG
+        }
+        private void exit(object sender, RoutedEventArgs e)
+        {
+            mainWindow.openPage(MainWindow.pages.login);
         }
     }
 }
