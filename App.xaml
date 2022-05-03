@@ -8,6 +8,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Themes/ButtonTheme.xaml"/>
                 <ResourceDictionary Source="/Themes/TextBoxTheme.xaml"/>
+                <ResourceDictionary Source="/Themes/ComboBoxTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
         

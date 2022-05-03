@@ -5,33 +5,98 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:curs_reborn.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="400" d:DesignWidth="600"
+      d:DesignHeight="500" d:DesignWidth="920"
       Title="statementPage">
-
+    
     <Grid>
-        <StackPanel  HorizontalAlignment="Left" Margin="20" Width="250">
-            <Button Click="fillStatement" Content="Сгенерировать" Style="{StaticResource StatementButton}"/>
-            <TextBlock Text="Группа" Style="{StaticResource statementText}"/>
-            <ComboBox x:Name="comboGroups"  Style="{StaticResource statementComboBox }"/>
-            <TextBlock Text="Семестр" Style="{StaticResource statementText}"/>
-            <ComboBox x:Name="comboTerm" Style="{StaticResource statementComboBox}"/>
-            <TextBlock Text="Учебный год" Style="{StaticResource statementText}"/>
-            <ComboBox x:Name="comboYear" Style="{StaticResource statementComboBox}"/>
-            <Button Click="save" Content="Сохранить" Style="{StaticResource StatementButton}"/>
-            <Button Click="open" Content="Открыть" Style="{StaticResource StatementButton}"/>
-            <Button Click="exit" Content="Назад" Style="{StaticResource StatementButton}"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel HorizontalAlignment="Left" Grid.Column="0"
+                    Margin="20,20,0,20" 
+                    Width="250">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="FontFamily" Value="/Fonts/#Montserrat"/>
+                    <Setter Property="FontSize" Value="18"/>
+                </Style>
+                
+            </StackPanel.Resources>
+            <Button Click="fillStatement"
+                    Content="Сгенерировать" 
+                    Margin="10"
+                    Style="{StaticResource ButtonTheme}"/>
+            <TextBlock Text="Группа"
+                       Foreground="White"
+                       Margin="10,0,0,0"/>
+            <ComboBox x:Name="comboGroups" 
+                      Margin="10"
+                      Style="{StaticResource ComboBoxTheme}"/>
+            <TextBlock Text="Семестр"
+                       Foreground="White"
+                       Margin="10,0,0,0"/>
+            <ComboBox x:Name="comboTerm"
+                      Margin="10"
+                      
+                      Style="{StaticResource ComboBoxTheme}"/>
+            <TextBlock Text="Учебный год"
+                       Foreground="White"
+                       Margin="10,0,0,0"/>
+            <ComboBox x:Name="comboYear" 
+                      Margin="10"
+                      Style="{StaticResource ComboBoxTheme}"/>
+            <Button Click="save" 
+                    Content="Сохранить" 
+                    Margin="10" 
+                    Style="{StaticResource ButtonTheme}"/>
+            <Button Click="open"
+                    Content="Открыть" 
+                    Margin="10"
+                    Style="{StaticResource ButtonTheme}"/>
+            <Button Click="exit" 
+                    Content="Назад" 
+                    Margin="10" 
+                    Style="{StaticResource ButtonTheme}"/>
         </StackPanel>
-        <ListView x:Name="LV" Width="300" HorizontalAlignment="Right" Margin="10">
-            <ListView.View>
-                <GridView>
-                    <GridView.Columns>
-                        <GridViewColumn DisplayMemberBinding="{Binding surname}" Width ="Auto" Header="Фамилия"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding mark}"  Width ="Auto" Header="Оценка"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding grant}"  Width ="Auto" Header="Тип"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding cost}" Width ="Auto"  Header="Стоимость"/>
-                    </GridView.Columns>
-                </GridView>
-            </ListView.View>
-        </ListView>
+        <DataGrid x:Name="DG" 
+                  Grid.Column="1"
+                  AutoGenerateColumns="False" 
+                  Background="Transparent" 
+                  BorderBrush="White" 
+                  RowBackground="#a0a0d0"
+                  CanUserAddRows="False"
+                  IsReadOnly="True">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" 
+                            Value="#9090d0"/>
+                    <Setter Property="Width" 
+                            Value="Auto"/>
+                    <Setter Property="BorderThickness" 
+                            Value="0"/>
+                    <Setter Property="Margin" 
+                            Value="5"/>
+                    <Setter Property="Foreground" 
+                            Value="#f0f0f0"/>
+                    <Setter Property="FontSize"
+                            Value="28"/>
+                    <Setter Property="MinWidth" 
+                            Value="100"/>
+                    <Setter Property="TextBlock.TextAlignment" 
+                            Value="Center"/>
+                </Style>
+                <Style TargetType="{x:Type DataGridCell}">
+                    <Setter Property="Foreground" Value="#f0f0f0"/>
+                    <Setter Property="AllowDrop" Value="False"/>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding surname}"/>
+                <DataGridTextColumn Header="Оценка" Binding="{Binding mark}"/>
+                <DataGridTextColumn Header="Тип" Binding="{Binding grant}"/>
+                <DataGridTextColumn Header="Размер" Binding="{Binding cost}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>

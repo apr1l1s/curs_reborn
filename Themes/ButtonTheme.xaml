@@ -6,11 +6,11 @@
             <Trigger Property="IsMouseOver" 
                      Value="True">
                 <Setter Property="Background" 
-                        Value="#9090d0"/>
+                        Value="#FF273DEF"/>
             </Trigger>
         </Style.Triggers>
         <Setter Property="Background" 
-                Value="#a0a0d0"/>
+                Value="#FF433FD0"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -24,10 +24,11 @@
                                    VerticalAlignment="Center"
                                    Text="{TemplateBinding Content}"
                                    FontSize="24"
+                                   FontFamily="/Fonts/#Montserrat"
                                    Foreground="#f0f0f0"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
-        </Setter
+        </Setter>
     </Style>
 </ResourceDictionary>

@@ -17,14 +17,13 @@
     <Border CornerRadius="20">
         <Border.Background>
             <LinearGradientBrush EndPoint="1.0,1" StartPoint="0.5,0">
-                <GradientStop Color="#FFD6E0F3"/>
-                <GradientStop Color="#FFBFCDF9" Offset="0.25"/>
-                <GradientStop Color="#FFC6C0EF" Offset="0.5"/>
-                <GradientStop Color="#FFC6C0EF" Offset="0.75"/>
-                <GradientStop Color="#FFC6C0EF" Offset="1"/>
+                <GradientStop Color="#FF5A07D6"/>
+                <GradientStop Color="#FF5C2FDC" Offset="0.25"/>
+                <GradientStop Color="#FF433FD0" Offset="0.5"/>
+                <GradientStop Color="#FF273DEF" Offset="0.75"/>
+                <GradientStop Color="#FF4023FF" Offset="1"/>
             </LinearGradientBrush>
         </Border.Background>
-
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="100"/>
@@ -36,7 +35,7 @@
                 <Border.Background>
                     <LinearGradientBrush EndPoint="0.5,0" 
                                          StartPoint="1.0,1">
-                        <GradientStop Color="#FFC6C0EF"/>
+                        <GradientStop Color="#FFD6E0F3"/>
                         <GradientStop Color="#FFC6D2F7" 
                                       Offset="0.5"/>
                         <GradientStop Color="#FFD6E0F3" 
@@ -45,12 +44,13 @@
                 </Border.Background>
                 <StackPanel Orientation="Horizontal">
                     <Image Source="Icons/mgutu.png"
-                           Visibility="Visible"/>
+                           Visibility="Visible"
+                           Margin="5"/>
                     <StackPanel Grid.Row="0"
                                 Orientation="Horizontal"
                                 HorizontalAlignment="Right"
-                                VerticalAlignment="Top"
-                                Margin="700,10,0,0">
+                                VerticalAlignment="Center"
+                                Margin="700,0,0,0">
                         <StackPanel.Resources>
                             <Style TargetType="{x:Type Button}">
                                 <Setter Property="Width" 
@@ -76,11 +76,14 @@
                     </StackPanel>
                 </StackPanel>
             </Border>
-            <Frame BorderBrush="#FF293A67"
-                   Grid.Row="1"
-                   BorderThickness="0"
-                   x:Name="frame"
-                   NavigationUIVisibility="Hidden"/>
+            <StackPanel Grid.Row="1">
+                <Frame BorderBrush="#FF293A67"
+                       BorderThickness="0"
+                       x:Name="frame"
+                       NavigationUIVisibility="Hidden" 
+                       Height="500" 
+                       Width="920"/>
+            </StackPanel>
         </Grid>
     </Border>
 

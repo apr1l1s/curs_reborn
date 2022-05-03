@@ -51,10 +51,10 @@ namespace curs_reborn.Pages
 
         private void save(object sender, RoutedEventArgs e)
         {
-            for (int i = 0; i < LV.Items.Count; i++)
+            for (int i = 0; i < DG.Items.Count; i++)
             {
                 st.Add(new selectStatement_Result());
-                st[i] = (selectStatement_Result)LV.Items.GetItemAt(i);
+                st[i] = (selectStatement_Result)DG.Items.GetItemAt(i);
             }
             MessageBox.Show($"{comboYear.SelectedValue.ToString()}");
             try
@@ -84,7 +84,7 @@ namespace curs_reborn.Pages
                         {
                             db.fillStatement(int.Parse(comboTerm.SelectedItem.ToString()),
                                                        comboYear.SelectedItem.ToString());
-                            LV.ItemsSource = db.selectStatement(int.Parse(comboTerm.SelectedItem.ToString()), 
+                            DG.ItemsSource = db.selectStatement(int.Parse(comboTerm.SelectedItem.ToString()), 
                                                                           comboYear.SelectedItem.ToString(), 
                                                                           comboGroups.SelectedItem.ToString()).ToList();
                         }
