@@ -6,6 +6,7 @@
     <Application.Resources>
         <Style x:Key="statementText" TargetType="TextBlock">
             <Setter Property="Width" Value="200"/>
+            <Setter Property="Margin" Value="0,10,0,0"/>
             <Setter Property="TextAlignment" Value="Center"/>
         </Style>
         <Style x:Key="LoginTextL" TargetType="TextBlock">

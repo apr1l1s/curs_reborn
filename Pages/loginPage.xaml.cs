@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using curs_reborn.Models;
 
 namespace curs_reborn.Pages
@@ -32,34 +23,40 @@ namespace curs_reborn.Pages
         {
             using (curs_databaseEntities db = new curs_databaseEntities())
             {
-                if (logBox.Text == "")
+                if (string.IsNullOrEmpty(logBox.Text))
                 {
                     MessageBox.Show("Введите логин");
                 }
-                else if (passBox.Text == "")
+                else if (string.IsNullOrEmpty(passBox.Password))
                 {
                     MessageBox.Show("Введите пароль");
                 }
                 else
                 {
-                    var findingUser = from u in db.users
-                                      where u.login.Contains(logBox.Text)
-                                      && u.pass.Contains(passBox.Text)
-                                      select u;
-                    if (findingUser.Count() > 0)
+                    try
                     {
-                        main.CurrentUser = findingUser.First();
-                        main.Title = main.titleUser;
-                        MessageBox.Show("Вы вошли");
-                        if (main.CurrentUser.access_level == 0)
-                            main.openPage(MainWindow.pages.statement);
-                        else main.openPage(MainWindow.pages.admin);
-                    }
-                    else
+                        var findingUser = from u in db.users
+                                          where u.login == logBox.Text
+                                          && u.pass == passBox.Password
+                                          select u;
+                        if (findingUser.Count() > 0)
+                        {
+                            main.CurrentUser = findingUser.First();
+                            switch (main.CurrentUser.access_level)
+                            {
+                                case 0: main.openPage(MainWindow.pages.statement); break;
+                                case 1: main.openPage(MainWindow.pages.admin); break;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Неправильный пароль или логин");
+                            logBox.Text = "";
+                            passBox.Password = "";
+                        }
+                    } catch (Exception ex)
                     {
-                        MessageBox.Show("Неправильный пароль или логин");
-                        logBox.Text = "";
-                        passBox.Text = "";
+                        MessageBox.Show(ex.Message);
                     }
                 }
             }

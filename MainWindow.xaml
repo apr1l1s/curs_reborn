@@ -5,29 +5,62 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:curs_reborn"
         mc:Ignorable="d"
-        Title="Генератор степендионных ведомостей (Гость)"
-        Height="500"
-        Width="900"
-        Background="White"
-        Icon="Icons/icon.jpg" WindowStartupLocation="Manual" Cursor="Cross">
-    <Grid>
-        <Image
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Height="90"
-            Grid.Row="0"
-            Source="Icons/image.jpg" 
-            Visibility="Visible"
-            Margin="15"
-        />
-        <Frame 
-            BorderBrush="#FF293A67"
-            BorderThickness="2"
-            x:Name="frame"
-            NavigationUIVisibility="Hidden"
-            Margin="180,10,10,10"
-            Width="600"
-            Height="400"
-        />
-    </Grid>
+        Height="600"
+        Width="1000"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        Background="Transparent"
+        AllowsTransparency="True"
+        Icon="Icons/icon.jpg" 
+        WindowStartupLocation="Manual">
+    <Border Background="White"
+            CornerRadius="20">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="170"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Image Source="Icons/image.jpg" 
+                   Grid.Column="0"
+                   Visibility="Visible"
+                   Margin="5,5,0,0"/>
+            <Frame BorderBrush="#FF293A67"
+                   Grid.Row="1"
+                   Grid.Column="1"
+                   BorderThickness="0"
+                   x:Name="frame"
+                   NavigationUIVisibility="Hidden"
+                   Height="450"
+                   Width="800"/>
+            <StackPanel Grid.Row="0" 
+                        Grid.Column="1" 
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="Width" Value="20"/>
+                        <Setter Property="Height" Value="20"/>
+                        <Setter Property="Margin" Value="20"/>
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </StackPanel.Resources>
+                <Border MouseLeftButtonDown="mini" 
+                        BorderBrush="#FF243C6F"
+                        Background="#FF243C6F"
+                        BorderThickness="2"
+                        Height="4"
+                        VerticalAlignment="Bottom"/>
+                <Border  MouseLeftButtonDown="close"
+                         BorderThickness="2"
+                         Background="White"
+                         BorderBrush="#FF243C6F"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+   
 </Window>

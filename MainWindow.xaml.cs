@@ -1,20 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Data.Entity;
 using curs_reborn.Models;
 using curs_reborn.Pages;
+
 namespace curs_reborn
 {
     /// <summary>
@@ -22,19 +12,6 @@ namespace curs_reborn
     /// </summary>
     public partial class MainWindow : Window
     {
-        public string titleUser 
-        {
-            get
-            {
-                if (CurrentUser.login != null)
-                {
-                    if (CurrentUser.access_level == 0) return "Генератор стипендионных ведомостей (Секретарь)";
-                    else return "Генератор стипендионных ведомостей (Админ)";
-                } else return "Генератор стипендионных ведомостей (Гость)";
-            }
-            set { }
-            
-        }
         public user CurrentUser;
         public enum pages
         {
@@ -47,7 +24,6 @@ namespace curs_reborn
                 case pages.login:
                     frame.Content = null;
                     CurrentUser = new user();
-                    this.Title = titleUser;
                     frame.Navigate(new loginPage(this));
                     break;
                 case pages.admin:
@@ -67,10 +43,28 @@ namespace curs_reborn
         public MainWindow()
         {
             InitializeComponent();
+            
             frame.Navigate(new loginPage(this));
+            border();
         }
-        
+        private void border()
+        {
+            Border border = (Border)this.Content;
+            border.MouseLeftButtonDown += new MouseButtonEventHandler(layout_MouseLeftButtonDown);
+        }
+        void layout_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
 
+        private void mini(object sender, MouseButtonEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
 
+        private void close(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

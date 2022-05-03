@@ -18,6 +18,7 @@
             <TextBlock Text="Учебный год" Style="{StaticResource statementText}"/>
             <ComboBox x:Name="comboYear" Style="{StaticResource statementComboBox}"/>
             <Button Click="save" Content="Сохранить" Style="{StaticResource StatementButton}"/>
+            <Button Click="open" Content="Открыть" Style="{StaticResource StatementButton}"/>
             <Button Click="exit" Content="Назад" Style="{StaticResource StatementButton}"/>
         </StackPanel>
         <ListView x:Name="LV" Width="300" HorizontalAlignment="Right" Margin="10">
