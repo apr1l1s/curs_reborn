@@ -57,12 +57,12 @@ namespace curs_reborn
             this.DragMove();
         }
 
-        private void mini(object sender, MouseButtonEventArgs e)
+        private void mini(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
         }
 
-        private void close(object sender, MouseButtonEventArgs e)
+        private void close(object sender, RoutedEventArgs e)
         {
             this.Close();
         }

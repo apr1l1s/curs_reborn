@@ -23,11 +23,11 @@ namespace curs_reborn.Pages
         {
             using (curs_databaseEntities db = new curs_databaseEntities())
             {
-                if (string.IsNullOrEmpty(logBox.Text))
+                if (logBox.Text == "")
                 {
                     MessageBox.Show("Введите логин");
                 }
-                else if (string.IsNullOrEmpty(passBox.Password))
+                else if (passBox.Text == "")
                 {
                     MessageBox.Show("Введите пароль");
                 }
@@ -37,7 +37,7 @@ namespace curs_reborn.Pages
                     {
                         var findingUser = from u in db.users
                                           where u.login == logBox.Text
-                                          && u.pass == passBox.Password
+                                          && u.pass == passBox.Text
                                           select u;
                         if (findingUser.Count() > 0)
                         {
@@ -52,7 +52,7 @@ namespace curs_reborn.Pages
                         {
                             MessageBox.Show("Неправильный пароль или логин");
                             logBox.Text = "";
-                            passBox.Password = "";
+                            passBox.Text = "";
                         }
                     } catch (Exception ex)
                     {

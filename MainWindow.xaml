@@ -6,61 +6,82 @@
         xmlns:local="clr-namespace:curs_reborn"
         mc:Ignorable="d"
         Height="600"
-        Width="1000"
+        Width="920"
         ResizeMode="NoResize"
         WindowStyle="None"
         Background="Transparent"
         AllowsTransparency="True"
         Icon="Icons/icon.jpg" 
         WindowStartupLocation="Manual">
-    <Border Background="White"
-            CornerRadius="20">
+
+    <Border CornerRadius="20">
+        <Border.Background>
+            <LinearGradientBrush EndPoint="1.0,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFD6E0F3"/>
+                <GradientStop Color="#FFBFCDF9" Offset="0.25"/>
+                <GradientStop Color="#FFC6C0EF" Offset="0.5"/>
+                <GradientStop Color="#FFC6C0EF" Offset="0.75"/>
+                <GradientStop Color="#FFC6C0EF" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.Background>
+
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="170"/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="70"/>
+                <RowDefinition Height="100"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Image Source="Icons/image.jpg" 
-                   Grid.Column="0"
-                   Visibility="Visible"
-                   Margin="5,5,0,0"/>
+            <Border BorderThickness="0" 
+                    CornerRadius="20" 
+                    Grid.Row="0">
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="0.5,0" 
+                                         StartPoint="1.0,1">
+                        <GradientStop Color="#FFC6C0EF"/>
+                        <GradientStop Color="#FFC6D2F7" 
+                                      Offset="0.5"/>
+                        <GradientStop Color="#FFD6E0F3" 
+                                      Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Icons/mgutu.png"
+                           Visibility="Visible"/>
+                    <StackPanel Grid.Row="0"
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Top"
+                                Margin="700,10,0,0">
+                        <StackPanel.Resources>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Width" 
+                                        Value="40"/>
+                                <Setter Property="Height" 
+                                        Value="40"/>
+                                <Setter Property="Margin" 
+                                        Value="0,0,10,0"/>
+                                <Setter Property="FontSize" 
+                                        Value="28"/>
+                                <Setter Property="Background" 
+                                        Value="Transparent"/>
+                                <Setter Property="BorderThickness" 
+                                        Value="0"/>
+                                <Setter Property="Foreground" 
+                                        Value="#FF2F3D4A"/>
+                            </Style>
+                        </StackPanel.Resources>
+                        <Button Content="▂"
+                                Click="mini"/>
+                        <Button Content="✖"
+                                Click="close"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
             <Frame BorderBrush="#FF293A67"
                    Grid.Row="1"
-                   Grid.Column="1"
                    BorderThickness="0"
                    x:Name="frame"
-                   NavigationUIVisibility="Hidden"
-                   Height="450"
-                   Width="800"/>
-            <StackPanel Grid.Row="0" 
-                        Grid.Column="1" 
-                        Orientation="Horizontal"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Top">
-                <StackPanel.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="Width" Value="20"/>
-                        <Setter Property="Height" Value="20"/>
-                        <Setter Property="Margin" Value="20"/>
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </StackPanel.Resources>
-                <Border MouseLeftButtonDown="mini" 
-                        BorderBrush="#FF243C6F"
-                        Background="#FF243C6F"
-                        BorderThickness="2"
-                        Height="4"
-                        VerticalAlignment="Bottom"/>
-                <Border  MouseLeftButtonDown="close"
-                         BorderThickness="2"
-                         Background="White"
-                         BorderBrush="#FF243C6F"/>
-            </StackPanel>
+                   NavigationUIVisibility="Hidden"/>
         </Grid>
     </Border>
-   
+
 </Window>

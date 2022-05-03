@@ -4,31 +4,12 @@
              xmlns:local="clr-namespace:curs_reborn"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <Style x:Key="statementText" TargetType="TextBlock">
-            <Setter Property="Width" Value="200"/>
-            <Setter Property="Margin" Value="0,10,0,0"/>
-            <Setter Property="TextAlignment" Value="Center"/>
-        </Style>
-        <Style x:Key="LoginTextL" TargetType="TextBlock">
-            <Setter Property="TextAlignment" Value="Center"/>
-            <Setter Property="FontSize" Value="44"/>
-        </Style>
-        <Style x:Key="MainTextL" TargetType="TextBlock">
-            <Setter Property="TextAlignment" Value="Center"/>
-            <Setter Property="FontSize" Value="44"/>
-            <Setter Property="Margin" Value="20"/>
-        </Style>
-        <Style x:Key="MainButton" TargetType="Button">
-            <Setter Property="Margin" Value="10"/>
-            <Setter Property="Width" Value="200"/>
-        </Style>
-        <Style x:Key="statementComboBox" TargetType="ComboBox">
-            <Setter Property="Width" Value="200"/>
-            <Setter Property="Margin" Value="10,0,0,10"/>
-        </Style>
-        <Style x:Key="StatementButton" TargetType="Button">
-            <Setter Property="Margin" Value="10,10,0,0"/>
-            <Setter Property="Width" Value="200"/>
-        </Style>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Themes/ButtonTheme.xaml"/>
+                <ResourceDictionary Source="/Themes/TextBoxTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        
     </Application.Resources>
 </Application>
