@@ -18,7 +18,7 @@ namespace curs_reborn.Models
     public partial class curs_databaseEntities : DbContext
     {
         public curs_databaseEntities()
-            : base("name=curs_databaseEntitiesD")
+            : base("name=curs_databaseEntitiesL")
         {
         }
     

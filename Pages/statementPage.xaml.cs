@@ -44,11 +44,6 @@ namespace curs_reborn.Pages
                 }
             }
         }
-
-
-
-
-
         private void save(object sender, RoutedEventArgs e)
         {
             for (int i = 0; i < DG.Items.Count; i++)
@@ -56,17 +51,16 @@ namespace curs_reborn.Pages
                 st.Add(new selectStatement_Result());
                 st[i] = (selectStatement_Result)DG.Items.GetItemAt(i);
             }
-            MessageBox.Show($"{comboYear.SelectedValue.ToString()}");
             try
             {
-                WordHelper.WordHelper helper = new WordHelper.WordHelper("Ведомость.docx");
+                WordHelper.WordHelper helper = new WordHelper.WordHelper(@"C:\Users\iceke\Desktop\curs_reborn\WordHelper\Ведомость.docx");
                 var keys = new Dictionary<string, string>
                 {
                     {"<year>", comboYear.SelectedValue.ToString() },
                     {"<term>", comboTerm.SelectedValue.ToString() },
-                    {"<group>", comboGroups.SelectedValue.ToString() }
+                    {"<group>", comboGroups.SelectedValue.ToString()}
                 };
-                helper.Process(keys);
+                helper.Process(keys,st);
             } catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -103,6 +97,5 @@ namespace curs_reborn.Pages
         {
             main.openPage(MainWindow.pages.login);
         }
-
     }
 }

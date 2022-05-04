@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.IO;
 using Word = Microsoft.Office.Interop.Word;
 using System.Reflection;
+using System.Windows;
+using curs_reborn.Models;
 
 namespace curs_reborn.WordHelper
 {
@@ -37,17 +39,30 @@ namespace curs_reborn.WordHelper
                 throw new ArgumentException("Файл не найден");
             }
         }
-        internal void Process(Dictionary<string,string> items)
+        internal void FillTable(List<selectStatement_Result> st, Word.Application app)
+        {
+            Word.Range r = app.ActiveDocument.Tables[1].Range;
+            object missingObj = Missing.Value;
+            for (int i=0; i<st.Count; i++)
+            {
+                app.ActiveDocument.Tables[1].Rows.Add(ref missingObj);
+                app.ActiveDocument.Tables[1].Cell(2+i, 1).Range.Text = st[i].surname.ToString();
+                app.ActiveDocument.Tables[1].Cell(2 + i, 2).Range.Text = st[i].mark.ToString();
+                app.ActiveDocument.Tables[1].Cell(2 + i, 3).Range.Text = st[i].grant.ToString();
+                app.ActiveDocument.Tables[1].Cell(2 + i, 4).Range.Text = st[i].cost.ToString();
+            }
+        }
+        internal void Process(Dictionary<string,string> items, List<selectStatement_Result> st)
         {
             Word.Application app = null;
-            try 
+            try
             {
                 app = new Word.Application();
                 //Обьектные параметры для word
                 Object file = _fileInfo.FullName;
                 Object missing = Type.Missing;
                 //Открывается копия документа по шаблону указаному в file
-                app.Documents.Open(file);
+                Word.Document doc = app.Documents.Open(file);
                 foreach (var item in items)
                 {
                     //перебираются все теги и заменяются на значения
@@ -72,20 +87,17 @@ namespace curs_reborn.WordHelper
                         ReplaceWith: missing,
                         Replace: replace);
                 }
-                /*тут можно написать 
-                finale {
-                    if (app != null) {
-                    app.Document.Close();
-                    app.Quit()
-                    }
-                } 
-                если надо закрыть word*/
-                //приложение показывается для дальшейней работы с документом (можно убрать)
+                FillTable(st, app);
                 app.Visible = true;
             } catch(Exception ex)
             {
-                Console.Write(ex.Message);
+                MessageBox.Show(ex.Message + "\nПриложение закрыто");
+                if (app != null)
+                {
+                    app.Quit();
+                }
             }
+            
         }
     }
 }

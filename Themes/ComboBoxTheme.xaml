@@ -5,7 +5,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
-                    <Border CornerRadius="20"
+                    <Border CornerRadius="10"
                             Background="{TemplateBinding Background}"
                             Width="{TemplateBinding Width}">
                     </Border>
@@ -25,7 +25,7 @@
             <Setter.Value>
                 <ControlTemplate>
                     <TextBlock Foreground="White"
-                               Background="#FF5C2FDC"
+                               Background="#FF433FD0"
                                FontFamily="/Fonts/#Montserrat"/>
                 </ControlTemplate>
             </Setter.Value>
@@ -43,11 +43,11 @@
         <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
         <Setter Property="FontSize" Value="16" />
         <Setter Property="MinWidth" Value="50"/>
-        <Setter Property="MinHeight" Value="32"/>
+        <Setter Property="MinHeight" Value="25"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ComboBox}">
-                    <Border CornerRadius="20">
+                    <Border CornerRadius="2">
                         <Grid>
                             <ToggleButton Name="ToggleButton"
                                                   BorderBrush="{TemplateBinding BorderBrush}"
@@ -85,9 +85,11 @@
                                   SnapsToDevicePixels="True"               
                                   MinWidth="{TemplateBinding ActualWidth}"
                                   MaxHeight="{TemplateBinding MaxDropDownHeight}">
-                            <Border x:Name="DropDownBorder" CornerRadius="20"
-                                        Background="#9090d0"
-                                        BorderThickness="0"/>
+                            <Border x:Name="DropDownBorder" 
+                                    CornerRadius="4"
+                                    Background="#FF947CD6"
+                                    BorderThickness="1"
+                                    BorderBrush="#FF433FD0"/>
                             <ScrollViewer Margin="4,6,4,6" 
                                                SnapsToDevicePixels="True">
                                         <StackPanel IsItemsHost="True" 

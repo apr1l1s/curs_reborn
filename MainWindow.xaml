@@ -17,11 +17,11 @@
     <Border CornerRadius="20">
         <Border.Background>
             <LinearGradientBrush EndPoint="1.0,1" StartPoint="0.5,0">
-                <GradientStop Color="#FF5A07D6"/>
-                <GradientStop Color="#FF5C2FDC" Offset="0.25"/>
-                <GradientStop Color="#FF433FD0" Offset="0.5"/>
-                <GradientStop Color="#FF273DEF" Offset="0.75"/>
-                <GradientStop Color="#FF4023FF" Offset="1"/>
+                <GradientStop Color="#FFA772F5"/>
+                <GradientStop Color="#FF947CD6" Offset="0.25"/>
+                <GradientStop Color="#FF7471DA" Offset="0.5"/>
+                <GradientStop Color="#FF6D7CF7" Offset="0.75"/>
+                <GradientStop Color="#FF7A69EA" Offset="1"/>
             </LinearGradientBrush>
         </Border.Background>
         <Grid>

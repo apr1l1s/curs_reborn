@@ -32,20 +32,22 @@
                        Margin="10,0,0,0"/>
             <ComboBox x:Name="comboGroups" 
                       Margin="10"
+                      Height="30"
                       Style="{StaticResource ComboBoxTheme}"/>
             <TextBlock Text="Семестр"
                        Foreground="White"
                        Margin="10,0,0,0"/>
             <ComboBox x:Name="comboTerm"
                       Margin="10"
-                      
+                      Height="30"
                       Style="{StaticResource ComboBoxTheme}"/>
             <TextBlock Text="Учебный год"
                        Foreground="White"
                        Margin="10,0,0,0"/>
             <ComboBox x:Name="comboYear" 
                       Margin="10"
-                      Style="{StaticResource ComboBoxTheme}"/>
+                      Style="{StaticResource ComboBoxTheme}"
+                      Height="30"/>
             <Button Click="save" 
                     Content="Сохранить" 
                     Margin="10" 
