@@ -59,7 +59,7 @@ namespace curs_reborn.Pages
                     {"<term>", comboTerm.SelectedValue.ToString()},
                     {"<group>", comboGroups.SelectedValue.ToString()}
                 };
-                var helper = new WordHelper.WordHelper(@"C:\Users\apr1l1s\source\repos\curs_reborn\Ведомость.docx");
+                var helper = new WordHelper.WordHelper(@"C:\Users\iceke\source\repos\curs_reborn\Ведомость.docx");
                 helper.Process(keys,st);
             } catch(Exception ex)
             {
