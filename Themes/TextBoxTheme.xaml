@@ -11,9 +11,7 @@
                             Height="31">
                         <TextBox Margin="1"
                                  Text="{TemplateBinding Text}"
-                                 BorderThickness="0"
                                  VerticalContentAlignment="Center"
-                                 Padding="5"
                                  Foreground="Black"
                                  Width="190"
                                  Background="Transparent"

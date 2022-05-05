@@ -24,7 +24,7 @@
                 
             </StackPanel.Resources>
             <Button Click="fillStatement"
-                    Content="Сгенерировать" 
+                    Content="Создать" 
                     Margin="10"
                     Style="{StaticResource ButtonTheme}"/>
             <TextBlock Text="Группа"
@@ -61,44 +61,36 @@
                     Margin="10" 
                     Style="{StaticResource ButtonTheme}"/>
         </StackPanel>
-        <DataGrid x:Name="DG" 
+        <DataGrid ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle}" x:Name="DG"
                   Grid.Column="1"
-                  AutoGenerateColumns="False" 
-                  Background="Transparent" 
-                  BorderBrush="White" 
-                  RowBackground="#a0a0d0"
-                  CanUserAddRows="False"
+                  Margin="10"
+                  AutoGenerateColumns="False"
+                  Style="{StaticResource DataGridTheme}"
                   IsReadOnly="True">
-            <DataGrid.Resources>
-                <Style TargetType="{x:Type DataGridColumnHeader}">
-                    <Setter Property="Background" 
-                            Value="#9090d0"/>
-                    <Setter Property="Width" 
-                            Value="Auto"/>
-                    <Setter Property="BorderThickness" 
-                            Value="0"/>
-                    <Setter Property="Margin" 
-                            Value="5"/>
-                    <Setter Property="Foreground" 
-                            Value="#f0f0f0"/>
-                    <Setter Property="FontSize"
-                            Value="28"/>
-                    <Setter Property="MinWidth" 
-                            Value="100"/>
-                    <Setter Property="TextBlock.TextAlignment" 
-                            Value="Center"/>
-                </Style>
-                <Style TargetType="{x:Type DataGridCell}">
-                    <Setter Property="Foreground" Value="#f0f0f0"/>
-                    <Setter Property="AllowDrop" Value="False"/>
-                </Style>
-            </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Фамилия" Binding="{Binding surname}"/>
-                <DataGridTextColumn Header="Оценка" Binding="{Binding mark}"/>
-                <DataGridTextColumn Header="Тип" Binding="{Binding grant}"/>
-                <DataGridTextColumn Header="Размер" Binding="{Binding cost}"/>
+                <DataGridTextColumn Header="Фамилия"
+                                    MinWidth="100"
+                                    Width="*"
+                                    TextBlock.TextAlignment="Center"
+                                    Binding="{Binding surname}">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Оценка"
+                                    MinWidth="100"
+                                    Width="*"
+                                    Binding="{Binding mark}">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Тип стипендии"
+                                    MinWidth="100"
+                                    Width="*"
+                                    Binding="{Binding grant}">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Сумма"
+                                    MinWidth="100"
+                                    Width="*"
+                                    Binding="{Binding cost}">
+                </DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
+                  
     </Grid>
 </Page>

@@ -53,13 +53,13 @@ namespace curs_reborn.Pages
             }
             try
             {
-                WordHelper.WordHelper helper = new WordHelper.WordHelper(@"C:\Users\iceke\Desktop\curs_reborn\WordHelper\Ведомость.docx");
                 var keys = new Dictionary<string, string>
                 {
-                    {"<year>", comboYear.SelectedValue.ToString() },
-                    {"<term>", comboTerm.SelectedValue.ToString() },
+                    {"<year>", comboYear.SelectedValue.ToString()},
+                    {"<term>", comboTerm.SelectedValue.ToString()},
                     {"<group>", comboGroups.SelectedValue.ToString()}
                 };
+                var helper = new WordHelper.WordHelper(@"C:\Users\iceke\Desktop\curs_reborn\Ведомость.docx");
                 helper.Process(keys,st);
             } catch(Exception ex)
             {
