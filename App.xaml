@@ -11,6 +11,7 @@
                 <ResourceDictionary Source="/Themes/TextBoxTheme.xaml"/>
                 <ResourceDictionary Source="/Themes/ComboBoxTheme.xaml"/>
                 <ResourceDictionary Source="/Themes/DataGridTheme.xaml"/>
+                <ResourceDictionary Source="/Themes/ThemeColors.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             
         </ResourceDictionary>

@@ -6,11 +6,11 @@
             <Trigger Property="IsMouseOver" 
                      Value="True">
                 <Setter Property="Background" 
-                        Value="#AA100A90"/>
+                        Value="{StaticResource DefaultColor}"/>
             </Trigger>
         </Style.Triggers>
         <Setter Property="Background" 
-                Value="#FF433FD0"/>
+                Value="{DynamicResource AlterColor}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -18,6 +18,8 @@
                             Background="{TemplateBinding Background}"
                             Height="{TemplateBinding Height}"
                             Width="{TemplateBinding Width}"
+                            BorderThickness="2"
+                            BorderBrush="{DynamicResource DefaultBorderColor}"
                             CornerRadius="10">
                         <TextBlock Background="Transparent"
                                    HorizontalAlignment="Center"
@@ -25,7 +27,7 @@
                                    Text="{TemplateBinding Content}"
                                    FontSize="24"
                                    FontFamily="/Fonts/#Montserrat"
-                                   Foreground="#f0f0f0"/>
+                                   Foreground="{DynamicResource DefaultTextColor}"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>

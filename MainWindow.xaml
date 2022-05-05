@@ -26,11 +26,11 @@
         </Border.Background>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="100"/>
+                <RowDefinition Height="50"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Border BorderThickness="0" 
-                    CornerRadius="20" 
+                    CornerRadius="20,20,0,0" 
                     Grid.Row="0">
                 <Border.Background>
                     <LinearGradientBrush EndPoint="0.5,0" 
@@ -50,7 +50,7 @@
                                 Orientation="Horizontal"
                                 HorizontalAlignment="Right"
                                 VerticalAlignment="Center"
-                                Margin="700,0,0,0">
+                                Margin="770,0,0,0">
                         <StackPanel.Resources>
                             <Style TargetType="{x:Type Button}">
                                 <Setter Property="Width" 
@@ -60,18 +60,18 @@
                                 <Setter Property="Margin" 
                                         Value="0,0,10,0"/>
                                 <Setter Property="FontSize" 
-                                        Value="28"/>
+                                        Value="24"/>
                                 <Setter Property="Background" 
                                         Value="Transparent"/>
                                 <Setter Property="BorderThickness" 
                                         Value="0"/>
                                 <Setter Property="Foreground" 
-                                        Value="#FF2F3D4A"/>
+                                        Value="#FFA2B6DA"/>
                             </Style>
                         </StackPanel.Resources>
                         <Button Content="▂"
                                 Click="mini"/>
-                        <Button Content="✖"
+                        <Button Content="X"
                                 Click="close"/>
                     </StackPanel>
                 </StackPanel>

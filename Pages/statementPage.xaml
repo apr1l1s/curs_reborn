@@ -61,7 +61,7 @@
                     Margin="10" 
                     Style="{StaticResource ButtonTheme}"/>
         </StackPanel>
-        <DataGrid ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle}" x:Name="DG"
+        <DataGrid x:Name="DG"
                   Grid.Column="1"
                   Margin="10"
                   AutoGenerateColumns="False"
@@ -71,7 +71,6 @@
                 <DataGridTextColumn Header="Фамилия"
                                     MinWidth="100"
                                     Width="*"
-                                    TextBlock.TextAlignment="Center"
                                     Binding="{Binding surname}">
                 </DataGridTextColumn>
                 <DataGridTextColumn Header="Оценка"
