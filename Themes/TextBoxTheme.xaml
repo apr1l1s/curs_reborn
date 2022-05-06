@@ -6,13 +6,13 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TextBox}">
                     <Border CornerRadius="10"
-                            Background="#a0a0d0"
+                            Background="{DynamicResource DefaultColor}"
                             Width="200" 
                             Height="31">
                         <TextBox Margin="1"
                                  Text="{TemplateBinding Text}"
                                  VerticalContentAlignment="Center"
-                                 Foreground="Black"
+                                 Foreground="{DynamicResource DefaultTextColor}"
                                  Width="190"
                                  Background="Transparent"
                                  Height="30"/>
