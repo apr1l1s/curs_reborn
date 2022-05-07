@@ -31,10 +31,25 @@
     </Page.Resources>
     <Grid>
         <StackPanel Style="{StaticResource adminPanel}">
-            <TextBlock Text="Выберите таблицу для изменения" Style="{DynamicResource adminText}"/>
-            <ComboBox x:Name="CB" Style="{StaticResource adminComboBox}"/>
-            <Button Click="edit" Content="Редактировать" Style="{StaticResource adminButton}"/>
-            <Button Click="exit" Content="Назад" Style="{StaticResource adminButton}"/>
+            <TextBlock Text="Выберите таблицу для изменения" 
+                       Style="{DynamicResource adminText}"
+                       Foreground="{DynamicResource DefaultTextColor}"/>
+            <ComboBox x:Name="CB" 
+                      Style="{StaticResource ComboBoxTheme}"
+                      Width="200"
+                      Margin="10"
+                      Height="40"/>
+            <Button Click="edit" 
+                    Content="Редактировать" 
+                    Style="{StaticResource ButtonTheme}"
+                    Width="200"
+                    Height="40"/>
+            <Button Click="exit" 
+                    Content="Назад"
+                    Margin="10"
+                    Style="{StaticResource ButtonTheme}"
+                    Width="200"
+                    Height="40"/>
         </StackPanel>
     </Grid>
 </Page>

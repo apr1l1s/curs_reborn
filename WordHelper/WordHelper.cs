@@ -4,6 +4,7 @@ using System.IO;
 using Word = Microsoft.Office.Interop.Word;
 using System.Windows;
 using curs_reborn.Models;
+using Microsoft.Win32;
 
 namespace curs_reborn.WordHelper
 {
@@ -11,6 +12,30 @@ namespace curs_reborn.WordHelper
     internal class WordHelper
     {
         private FileInfo _fileInfo;
+        public WordHelper()
+        {
+            Word.Application app = null;
+            OpenFileDialog dialog = new OpenFileDialog();
+            try
+            {
+                if (dialog.ShowDialog().Value)
+                {
+                    _fileInfo = new FileInfo(dialog.FileName);
+                    Object file = _fileInfo.FullName;
+                    app = new Word.Application();
+                    app.Documents.Open(file);
+                    app.Visible = true;
+                }
+                else
+                {
+                    MessageBox.Show("Не удалось открыть файл");
+                    app.Quit();
+                }
+            }catch 
+            {
+            }
+            
+        }
         public WordHelper(string fileName) 
         {
             if (File.Exists(fileName))

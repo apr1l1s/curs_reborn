@@ -4,7 +4,7 @@
     <SolidColorBrush x:Key="DefaultColor" Color="#FFA772F5"/>
     <SolidColorBrush x:Key="AlterColor" Color="#FF7A69EA"/>
     <SolidColorBrush x:Key="DefaultTextColor" Color="#F0F0F0"/>
-    <SolidColorBrush x:Key="AlterTextColor" Color="#CCCCFF"/>
+    <SolidColorBrush x:Key="AlterTextColor" Color="#FF61619C"/>
     <SolidColorBrush x:Key="DefaultBorderColor" Color="White"/>
     <SolidColorBrush x:Key="AlterBorderColor" Color="#cc6330c1"/>
 </ResourceDictionary>

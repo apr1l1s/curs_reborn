@@ -36,7 +36,7 @@ namespace curs_reborn
                     break;
                 case pages.users:
                     frame.Content = null;
-                    frame.Navigate(new usersPage(this));
+                    frame.Navigate(new Pages.editPages.usersPage(this));
                     break;
             }
         }

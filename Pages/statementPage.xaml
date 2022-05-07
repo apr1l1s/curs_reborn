@@ -61,12 +61,33 @@
                     Margin="10" 
                     Style="{StaticResource ButtonTheme}"/>
         </StackPanel>
-        <DataGrid x:Name="DG"
-                  Grid.Column="1"
+        <DataGrid RowHeaderStyle="{DynamicResource DataGridRowHeaderStyle}" 
+                  CellStyle="{DynamicResource DataGridCellStyle}" 
+                  RowStyle="{DynamicResource DataGridRowStyle}" 
+                  Template="{StaticResource DataGridTemplate}"
+                  FontSize="18"
                   Margin="10"
-                  AutoGenerateColumns="False"
-                  Style="{StaticResource DataGridTheme}"
-                  IsReadOnly="True">
+                  Grid.Column="1"
+                  IsReadOnly="True"
+                  GridLinesVisibility="None"
+                  CanUserReorderColumns="False"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  CanUserResizeRows="False"
+                  CanUserResizeColumns="False"
+                  ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle}"  
+                  x:Name="DG" 
+                  AutoGenerateColumns="False">
+            <DataGrid.Style>
+                <Style TargetType="{x:Type DataGrid}">
+                    <Setter Property="HeadersVisibility" Value="Column"/>
+                    <Setter Property="ScrollViewer.CanContentScroll" Value="False"/>
+                    <Setter Property="SelectionMode" Value="Single"/>
+                    <Setter Property="ScrollViewer.PanningMode" Value="Both"/>
+                    <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+                    <Setter Property="RowDetailsVisibilityMode" Value="VisibleWhenSelected"/>
+                </Style>
+            </DataGrid.Style>
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Фамилия"
                                     MinWidth="100"
@@ -78,7 +99,7 @@
                                     Width="*"
                                     Binding="{Binding mark}">
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="Тип стипендии"
+                <DataGridTextColumn Header="Тип"
                                     MinWidth="100"
                                     Width="*"
                                     Binding="{Binding grant}">

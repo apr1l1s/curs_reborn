@@ -11,7 +11,7 @@
         WindowStyle="None"
         Background="Transparent"
         AllowsTransparency="True"
-        Icon="Icons/icon.jpg" 
+        Icon="Icons/mgutu.png" 
         WindowStartupLocation="Manual">
 
     <Border CornerRadius="20">
@@ -71,14 +71,13 @@
                         </StackPanel.Resources>
                         <Button Content="▂"
                                 Click="mini"/>
-                        <Button Content="X"
+                        <Button Content="✖"
                                 Click="close"/>
                     </StackPanel>
                 </StackPanel>
             </Border>
             <StackPanel Grid.Row="1">
-                <Frame BorderBrush="#FF293A67"
-                       BorderThickness="0"
+                <Frame BorderThickness="0"
                        x:Name="frame"
                        NavigationUIVisibility="Hidden" 
                        Height="500" 

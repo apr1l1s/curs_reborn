@@ -24,6 +24,7 @@ namespace curs_reborn.Pages
             fillComboBoxes();
             
         }
+        //Заполнение КомбоБоксов из бд
         void fillComboBoxes()
         {
             using (curs_databaseEntities db = new curs_databaseEntities())
@@ -46,25 +47,35 @@ namespace curs_reborn.Pages
         }
         private void save(object sender, RoutedEventArgs e)
         {
-            for (int i = 0; i < DG.Items.Count; i++)
+            //Если ведомость сгенерирована
+            if (DG.Items.Count > 0)
             {
-                st.Add(new selectStatement_Result());
-                st[i] = (selectStatement_Result)DG.Items.GetItemAt(i);
-            }
-            try
-            {
-                var keys = new Dictionary<string, string>
+                //Заполняется список ведомости из грида
+                for (int i = 0; i < DG.Items.Count; i++)
                 {
-                    {"<year>", comboYear.SelectedValue.ToString()},
-                    {"<term>", comboTerm.SelectedValue.ToString()},
-                    {"<group>", comboGroups.SelectedValue.ToString()}
-                };
-                var helper = new WordHelper.WordHelper(@"Ведомость.docx");
-                helper.Process(keys,st);
-            } catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+                    st.Add(new selectStatement_Result());
+                    st[i] = (selectStatement_Result)DG.Items.GetItemAt(i);
+                }
+                try
+                {
+                    //Обозначаю теги для замены в шаблоне
+                    var keys = new Dictionary<string, string>
+                    {
+                        {"<year>", comboYear.SelectedValue.ToString()},
+                        {"<term>", comboTerm.SelectedValue.ToString()},
+                        {"<group>", comboGroups.SelectedValue.ToString()}
+                    };
+                    //Создаётся помощник для работы Word
+                    var helper = new WordHelper.WordHelper(@"Ведомость.docx");
+                    //Замена тегов выше на значения из комбобоксов и заполнение таблицы в шаблоне
+                    helper.Process(keys, st);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
+            else MessageBox.Show("Создайте ведомость");
         }
         public void fillStatement(object sender, RoutedEventArgs e)
         {
@@ -76,8 +87,9 @@ namespace curs_reborn.Pages
                     {
                         if (comboGroups.SelectedItem != null)
                         {
-                            db.fillStatement(int.Parse(comboTerm.SelectedItem.ToString()),
-                                                       comboYear.SelectedItem.ToString());
+                            //Заполнение таблицы ведомости в бд
+                            db.fillStatement(int.Parse(comboTerm.SelectedItem.ToString()), comboYear.SelectedItem.ToString());
+                            //Заполнение грида из таблицы ведомости в бд
                             DG.ItemsSource = db.selectStatement(int.Parse(comboTerm.SelectedItem.ToString()), 
                                                                           comboYear.SelectedItem.ToString(), 
                                                                           comboGroups.SelectedItem.ToString()).ToList();
@@ -91,6 +103,7 @@ namespace curs_reborn.Pages
         }
         public void open(object sender, RoutedEventArgs e)
         {
+            WordHelper.WordHelper word = new WordHelper.WordHelper();
             
         }
         public void exit(object sender, RoutedEventArgs e)

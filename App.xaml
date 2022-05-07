@@ -13,8 +13,6 @@
                 <ResourceDictionary Source="/Themes/DataGridTheme.xaml"/>
                 <ResourceDictionary Source="/Themes/ThemeColors.xaml"/>
             </ResourceDictionary.MergedDictionaries>
-            
         </ResourceDictionary>
-        
     </Application.Resources>
 </Application>
