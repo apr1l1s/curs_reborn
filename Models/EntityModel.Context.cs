@@ -259,5 +259,67 @@ namespace curs_reborn.Models
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
         }
+    
+        public virtual int addGroup(string title)
+        {
+            var titleParameter = title != null ?
+                new ObjectParameter("title", title) :
+                new ObjectParameter("title", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("addGroup", titleParameter);
+        }
+    
+        public virtual int delGroup(Nullable<int> group_id)
+        {
+            var group_idParameter = group_id.HasValue ?
+                new ObjectParameter("group_id", group_id) :
+                new ObjectParameter("group_id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("delGroup", group_idParameter);
+        }
+    
+        public virtual int editGroup(Nullable<int> group_id, string title)
+        {
+            var group_idParameter = group_id.HasValue ?
+                new ObjectParameter("group_id", group_id) :
+                new ObjectParameter("group_id", typeof(int));
+    
+            var titleParameter = title != null ?
+                new ObjectParameter("title", title) :
+                new ObjectParameter("title", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("editGroup", group_idParameter, titleParameter);
+        }
+    
+        public virtual int addSubject(string title)
+        {
+            var titleParameter = title != null ?
+                new ObjectParameter("title", title) :
+                new ObjectParameter("title", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("addSubject", titleParameter);
+        }
+    
+        public virtual int delSubject(Nullable<int> subject_id)
+        {
+            var subject_idParameter = subject_id.HasValue ?
+                new ObjectParameter("subject_id", subject_id) :
+                new ObjectParameter("subject_id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("delSubject", subject_idParameter);
+        }
+    
+        public virtual int editSubject(Nullable<int> subject_id, string title)
+        {
+            var subject_idParameter = subject_id.HasValue ?
+                new ObjectParameter("subject_id", subject_id) :
+                new ObjectParameter("subject_id", typeof(int));
+    
+            var titleParameter = title != null ?
+                new ObjectParameter("title", title) :
+                new ObjectParameter("title", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("editSubject", subject_idParameter, titleParameter);
+        }
     }
 }

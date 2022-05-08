@@ -81,6 +81,15 @@
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>EntityModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Pages\editPages\grantsPage.xaml.cs">
+      <DependentUpon>grantsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\editPages\groupsPage.xaml.cs">
+      <DependentUpon>groupsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\editPages\subjectsPage.xaml.cs">
+      <DependentUpon>subjectsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\editPages\usersPage.xaml.cs">
       <DependentUpon>usersPage.xaml</DependentUpon>
     </Compile>
@@ -98,6 +107,18 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Pages\adminPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\editPages\grantsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\editPages\groupsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\editPages\subjectsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

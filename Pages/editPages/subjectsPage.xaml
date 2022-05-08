@@ -1,4 +1,4 @@
-﻿<Page x:Class="curs_reborn.Pages.editPages.usersPage"
+﻿<Page x:Class="curs_reborn.Pages.editPages.subjectsPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,10 +6,11 @@
       xmlns:local="clr-namespace:curs_reborn.Pages.editPages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="usersPage">
+      Title="subjectsPage">
+
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="240"/>
+            <ColumnDefinition Width="300"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Border Grid.Column="0" 
@@ -17,40 +18,20 @@
                 Width="200"
                 VerticalAlignment="Top">
             <StackPanel>
-                <TextBlock Text="Логин" 
+                <TextBlock Text="Название" 
                            Margin="0,10,0,0"
                            Foreground="{DynamicResource DefaultTextColor}"/>
-                <TextBox x:Name="LogBox"
+                <TextBox x:Name="TitleBox"
                          Height="30"
                          Foreground="{DynamicResource DefaultTextColor}"
                          BorderBrush="{DynamicResource DefaultBorderColor}"
                          BorderThickness="2"
                          Background="{DynamicResource AlterColor}"
                          Template="{DynamicResource TextBoxTemplate}"/>
-                <TextBlock Text="Пароль" 
-                           Margin="0,10,0,0"
-                           Foreground="{DynamicResource DefaultTextColor}"/>
-                <TextBox x:Name="PassBox"
-                         Height="30"  
-                         Foreground="{DynamicResource DefaultTextColor}"
-                         BorderBrush="{DynamicResource DefaultBorderColor}"
-                         BorderThickness="2"
-                         Background="{DynamicResource AlterColor}"
-                         Template="{DynamicResource TextBoxTemplate}"/>
-                <TextBlock Text="Уровень доступа" 
-                           Margin="0,10,0,0"
-                           Foreground="{DynamicResource DefaultTextColor}"/>
-                <TextBox x:Name="AccBox"
-                         Height="30"
-                         Foreground="{DynamicResource DefaultTextColor}"
-                         BorderBrush="{DynamicResource DefaultBorderColor}"
-                         BorderThickness="2"
-                         Background="{DynamicResource AlterColor}"
-                         Template="{DynamicResource TextBoxTemplate}"
-                         Margin="0,0,0,10"/>
                 <Button Style="{StaticResource ButtonTheme}"
                         Click="save"
                         Width="200"
+                        Margin="0,10,0,0"
                         Content="Сохранить"/>
             </StackPanel>
         </Border>
@@ -82,18 +63,12 @@
         </Border>
         <Border Grid.Column="1"
                 Margin="5,10,5,10">
-            <DataGrid Style="{DynamicResource GridStyle}"  
+            <DataGrid Style="{DynamicResource GridStyle}" 
                       x:Name="DG" >
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Логин"
+                    <DataGridTextColumn Header="Название"
                                         Width="*"
-                                        Binding="{Binding login}"/>
-                    <DataGridTextColumn Header="Пароль"
-                                        Width="*"
-                                        Binding="{Binding pass}"/>
-                    <DataGridTextColumn Header="Уровень"
-                                        Width="*"
-                                        Binding="{Binding access_level}"/>
+                                        Binding="{Binding title}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Border>

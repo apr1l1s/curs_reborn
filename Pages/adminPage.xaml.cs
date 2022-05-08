@@ -39,12 +39,18 @@ namespace curs_reborn.Pages
                         mainWindow.openPage(MainWindow.pages.users);
                         break;
                     case 1:
-                        mainWindow.openPage(MainWindow.pages.users);
+                        mainWindow.openPage(MainWindow.pages.groups);
                         break;
+                    case 3:
+                        mainWindow.openPage(MainWindow.pages.grants);
+                        break;
+                    case 6:
+                        mainWindow.openPage(MainWindow.pages.subjects);
+                        break;
+
                 }
             }
             else MessageBox.Show("Выберите таблицу");
-            //mainWindow.openPage(MainWindow.pages.edit);
         }
     }
 }

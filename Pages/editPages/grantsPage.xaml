@@ -1,0 +1,38 @@
+﻿<Page x:Class="curs_reborn.Pages.editPages.grantsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:curs_reborn.Pages.editPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="grantsPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <StackPanel Margin="10">
+                <TextBlock Text="Семестр"
+                       Foreground="{DynamicResource DefaultTextColor}"
+                       FontSize="18"/>
+                <ComboBox x:Name="TermBox"
+                      Style="{DynamicResource ComboBoxTheme}"
+                      Width="70"
+                      HorizontalAlignment="Left"/>
+            </StackPanel>
+            <StackPanel Margin="10">
+                <TextBlock Text="Год"
+                       Foreground="{DynamicResource DefaultTextColor}"
+                       FontSize="18"/>
+                <ComboBox x:Name="YearBox"
+                      Style="{DynamicResource ComboBoxTheme}"
+                      Width="100"
+                      HorizontalAlignment="Left"/>
+            </StackPanel>
+        </StackPanel>
+        
+    </Grid>
+</Page>

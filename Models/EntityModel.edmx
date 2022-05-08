@@ -181,13 +181,33 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="addGroup" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="title" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="addSubject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="title" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="addUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="login" Type="nvarchar" Mode="In" />
           <Parameter Name="pass" Type="nvarchar" Mode="In" />
           <Parameter Name="access_level" Type="int" Mode="In" />
         </Function>
+        <Function Name="delGroup" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="group_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="delSubject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="subject_id" Type="int" Mode="In" />
+        </Function>
         <Function Name="delUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="user_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="editGroup" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="group_id" Type="int" Mode="In" />
+          <Parameter Name="title" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="editSubject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="subject_id" Type="int" Mode="In" />
+          <Parameter Name="title" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="editUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="user_id" Type="int" Mode="In" />
@@ -586,6 +606,26 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="addGroup">
+          <Parameter Name="title" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="delGroup">
+          <Parameter Name="group_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="editGroup">
+            <Parameter Name="group_id" Mode="In" Type="Int32" />
+            <Parameter Name="title" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="addSubject">
+            <Parameter Name="title" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="delSubject">
+            <Parameter Name="subject_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="editSubject">
+            <Parameter Name="subject_id" Mode="In" Type="Int32" />
+            <Parameter Name="title" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="sysdiagram">
           <Key>
@@ -772,6 +812,12 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище EntityModel.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище EntityModel.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="addGroup" FunctionName="Хранилище EntityModel.addGroup" />
+          <FunctionImportMapping FunctionImportName="delGroup" FunctionName="Хранилище EntityModel.delGroup" />
+          <FunctionImportMapping FunctionImportName="editGroup" FunctionName="Хранилище EntityModel.editGroup" />
+          <FunctionImportMapping FunctionImportName="addSubject" FunctionName="Хранилище EntityModel.addSubject" />
+          <FunctionImportMapping FunctionImportName="delSubject" FunctionName="Хранилище EntityModel.delSubject" />
+          <FunctionImportMapping FunctionImportName="editSubject" FunctionName="Хранилище EntityModel.editSubject" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
