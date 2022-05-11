@@ -40,7 +40,7 @@ namespace curs_reborn.Pages.editPages
             else MessageBox.Show("Неподходящее название");
             return false;
         }
-        private void addOrEditUser()
+        private void addOrEdit()
         {
             using (curs_databaseEntities db = new curs_databaseEntities())
             {
@@ -91,7 +91,7 @@ namespace curs_reborn.Pages.editPages
             using (curs_databaseEntities db = new curs_databaseEntities())
             {
                 //При нажатии на кнопку Сохранить
-                addOrEditUser();
+                addOrEdit();
             }
         }
         private void add(object sender, RoutedEventArgs e)

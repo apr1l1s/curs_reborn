@@ -87,6 +87,9 @@
     <Compile Include="Pages\editPages\groupsPage.xaml.cs">
       <DependentUpon>groupsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\editPages\studPage.xaml.cs">
+      <DependentUpon>studPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\editPages\subjectsPage.xaml.cs">
       <DependentUpon>subjectsPage.xaml</DependentUpon>
     </Compile>
@@ -115,6 +118,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\editPages\groupsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\editPages\studPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

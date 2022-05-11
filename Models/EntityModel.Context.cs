@@ -321,5 +321,60 @@ namespace curs_reborn.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("editSubject", subject_idParameter, titleParameter);
         }
+    
+        public virtual int addGrant(string type, Nullable<decimal> cost, Nullable<int> term, string academ_year)
+        {
+            var typeParameter = type != null ?
+                new ObjectParameter("type", type) :
+                new ObjectParameter("type", typeof(string));
+    
+            var costParameter = cost.HasValue ?
+                new ObjectParameter("cost", cost) :
+                new ObjectParameter("cost", typeof(decimal));
+    
+            var termParameter = term.HasValue ?
+                new ObjectParameter("term", term) :
+                new ObjectParameter("term", typeof(int));
+    
+            var academ_yearParameter = academ_year != null ?
+                new ObjectParameter("academ_year", academ_year) :
+                new ObjectParameter("academ_year", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("addGrant", typeParameter, costParameter, termParameter, academ_yearParameter);
+        }
+    
+        public virtual int delGrant(Nullable<int> grant_id)
+        {
+            var grant_idParameter = grant_id.HasValue ?
+                new ObjectParameter("grant_id", grant_id) :
+                new ObjectParameter("grant_id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("delGrant", grant_idParameter);
+        }
+    
+        public virtual int editGrant(Nullable<int> grant_id, string type, Nullable<decimal> cost, Nullable<int> term, string academ_year)
+        {
+            var grant_idParameter = grant_id.HasValue ?
+                new ObjectParameter("grant_id", grant_id) :
+                new ObjectParameter("grant_id", typeof(int));
+    
+            var typeParameter = type != null ?
+                new ObjectParameter("type", type) :
+                new ObjectParameter("type", typeof(string));
+    
+            var costParameter = cost.HasValue ?
+                new ObjectParameter("cost", cost) :
+                new ObjectParameter("cost", typeof(decimal));
+    
+            var termParameter = term.HasValue ?
+                new ObjectParameter("term", term) :
+                new ObjectParameter("term", typeof(int));
+    
+            var academ_yearParameter = academ_year != null ?
+                new ObjectParameter("academ_year", academ_year) :
+                new ObjectParameter("academ_year", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("editGrant", grant_idParameter, typeParameter, costParameter, termParameter, academ_yearParameter);
+        }
     }
 }

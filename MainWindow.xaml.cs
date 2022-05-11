@@ -15,7 +15,7 @@ namespace curs_reborn
         public user CurrentUser;
         public enum pages
         {
-            login, statement, admin, users, groups, subjects, grants
+            login, statement, admin, users, groups, subjects, grants, students
         }
         public void openPage(pages page)
         {
@@ -49,6 +49,10 @@ namespace curs_reborn
                 case pages.subjects:
                     frame.Content = null;
                     frame.Navigate(new Pages.editPages.subjectsPage(this));
+                    break;
+                case pages.students:
+                    frame.Content = null;
+                    frame.Navigate(new Pages.editPages.studPage(this));
                     break;
             }
         }

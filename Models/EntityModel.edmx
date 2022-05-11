@@ -181,6 +181,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="addGrant" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="type" Type="nvarchar" Mode="In" />
+          <Parameter Name="cost" Type="money" Mode="In" />
+          <Parameter Name="term" Type="int" Mode="In" />
+          <Parameter Name="academ_year" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="addGroup" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="title" Type="nvarchar" Mode="In" />
         </Function>
@@ -192,6 +198,9 @@
           <Parameter Name="pass" Type="nvarchar" Mode="In" />
           <Parameter Name="access_level" Type="int" Mode="In" />
         </Function>
+        <Function Name="delGrant" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="grant_id" Type="int" Mode="In" />
+        </Function>
         <Function Name="delGroup" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="group_id" Type="int" Mode="In" />
         </Function>
@@ -200,6 +209,13 @@
         </Function>
         <Function Name="delUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="user_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="editGrant" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="grant_id" Type="int" Mode="In" />
+          <Parameter Name="type" Type="nvarchar" Mode="In" />
+          <Parameter Name="cost" Type="money" Mode="In" />
+          <Parameter Name="term" Type="int" Mode="In" />
+          <Parameter Name="academ_year" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="editGroup" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="group_id" Type="int" Mode="In" />
@@ -617,14 +633,30 @@
             <Parameter Name="title" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="addSubject">
-            <Parameter Name="title" Mode="In" Type="String" />
+          <Parameter Name="title" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="delSubject">
-            <Parameter Name="subject_id" Mode="In" Type="Int32" />
+          <Parameter Name="subject_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="editSubject">
             <Parameter Name="subject_id" Mode="In" Type="Int32" />
             <Parameter Name="title" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="addGrant">
+            <Parameter Name="type" Mode="In" Type="String" />
+            <Parameter Name="cost" Mode="In" Type="Decimal" />
+            <Parameter Name="term" Mode="In" Type="Int32" />
+            <Parameter Name="academ_year" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="delGrant">
+            <Parameter Name="grant_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="editGrant">
+            <Parameter Name="grant_id" Mode="In" Type="Int32" />
+            <Parameter Name="type" Mode="In" Type="String" />
+            <Parameter Name="cost" Mode="In" Type="Decimal" />
+            <Parameter Name="term" Mode="In" Type="Int32" />
+            <Parameter Name="academ_year" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="sysdiagram">
@@ -818,6 +850,9 @@
           <FunctionImportMapping FunctionImportName="addSubject" FunctionName="Хранилище EntityModel.addSubject" />
           <FunctionImportMapping FunctionImportName="delSubject" FunctionName="Хранилище EntityModel.delSubject" />
           <FunctionImportMapping FunctionImportName="editSubject" FunctionName="Хранилище EntityModel.editSubject" />
+          <FunctionImportMapping FunctionImportName="addGrant" FunctionName="Хранилище EntityModel.addGrant" />
+          <FunctionImportMapping FunctionImportName="delGrant" FunctionName="Хранилище EntityModel.delGrant" />
+          <FunctionImportMapping FunctionImportName="editGrant" FunctionName="Хранилище EntityModel.editGrant" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

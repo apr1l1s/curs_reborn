@@ -176,7 +176,7 @@
         </Setter>
     </Style>
     <Style x:Key="GridStyle" TargetType="{x:Type DataGrid}">
-        <Setter Property="RowHeaderStyle" Value="{DynamicResource DataGridColumnHeaderStyle}"/>
+        <Setter Property="RowHeaderStyle" Value="{DynamicResource DataGridRowHeaderStyle}"/>
         <Setter Property="CellStyle" Value="{DynamicResource DataGridCellStyle}"/>
         <Setter Property="RowStyle" Value="{DynamicResource DataGridRowStyle}"/>
         <Setter Property="ColumnHeaderStyle" Value="{DynamicResource DataGridColumnHeaderStyle}"/>

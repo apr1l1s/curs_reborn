@@ -41,6 +41,9 @@ namespace curs_reborn.Pages
                     case 1:
                         mainWindow.openPage(MainWindow.pages.groups);
                         break;
+                    case 2:
+                        mainWindow.openPage(MainWindow.pages.students);
+                        break;
                     case 3:
                         mainWindow.openPage(MainWindow.pages.grants);
                         break;

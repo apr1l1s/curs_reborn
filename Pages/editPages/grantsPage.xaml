@@ -10,29 +10,108 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="240"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0">
-            <StackPanel Margin="10">
-                <TextBlock Text="Семестр"
-                       Foreground="{DynamicResource DefaultTextColor}"
-                       FontSize="18"/>
-                <ComboBox x:Name="TermBox"
-                      Style="{DynamicResource ComboBoxTheme}"
-                      Width="70"
-                      HorizontalAlignment="Left"/>
+        <Border Grid.Column="0" 
+                Height="270"
+                Width="200"
+                VerticalAlignment="Top">
+            <StackPanel>
+                <TextBlock Text="Тип" 
+                           Margin="0,10,0,0"
+                           Foreground="{DynamicResource DefaultTextColor}"/>
+                <TextBox x:Name="TypeBox"
+                         Height="30"
+                         Foreground="{DynamicResource DefaultTextColor}"
+                         BorderBrush="{DynamicResource DefaultBorderColor}"
+                         BorderThickness="2"
+                         Background="{DynamicResource AlterColor}"
+                         Template="{DynamicResource TextBoxTemplate}"/>
+                <TextBlock Text="Размер" 
+                           Margin="0,10,0,0"
+                           Foreground="{DynamicResource DefaultTextColor}"/>
+                <TextBox x:Name="CostBox"
+                         Height="30"  
+                         Foreground="{DynamicResource DefaultTextColor}"
+                         BorderBrush="{DynamicResource DefaultBorderColor}"
+                         BorderThickness="2"
+                         Background="{DynamicResource AlterColor}"
+                         Template="{DynamicResource TextBoxTemplate}"/>
+                <TextBlock Text="Семестр" 
+                           Margin="0,10,0,0"
+                           Foreground="{DynamicResource DefaultTextColor}"/>
+                <TextBox x:Name="TermBox"
+                         Height="30"
+                         Foreground="{DynamicResource DefaultTextColor}"
+                         BorderBrush="{DynamicResource DefaultBorderColor}"
+                         BorderThickness="2"
+                         Background="{DynamicResource AlterColor}"
+                         Template="{DynamicResource TextBoxTemplate}"
+                         Margin="0,0,0,10"/>
+                <TextBlock Text="Учебный год" 
+                           Margin="0,0,0,0"
+                           Foreground="{DynamicResource DefaultTextColor}"/>
+                <TextBox x:Name="YearBox"
+                         Height="30"
+                         Foreground="{DynamicResource DefaultTextColor}"
+                         BorderBrush="{DynamicResource DefaultBorderColor}"
+                         BorderThickness="2"
+                         Background="{DynamicResource AlterColor}"
+                         Template="{DynamicResource TextBoxTemplate}"
+                         Margin="0,0,0,10"/>
+                <Button Style="{StaticResource ButtonTheme}"
+                        Click="save"
+                        Width="200"
+                        Content="Сохранить"/>
             </StackPanel>
-            <StackPanel Margin="10">
-                <TextBlock Text="Год"
-                       Foreground="{DynamicResource DefaultTextColor}"
-                       FontSize="18"/>
-                <ComboBox x:Name="YearBox"
-                      Style="{DynamicResource ComboBoxTheme}"
-                      Width="100"
-                      HorizontalAlignment="Left"/>
+        </Border>
+        <Border Grid.Column="0"
+                VerticalAlignment="Bottom" 
+                Margin="10">
+            <StackPanel Width="220">
+                <Button Style="{StaticResource ButtonTheme}"
+                        Click="add"
+                        Margin="5"
+                        Width="200"
+                        Content="Добавить"/>
+                <Button Style="{StaticResource ButtonTheme}"
+                        Click="del"
+                        Margin="5"
+                        Width="200"
+                        Content="Удалить"/>
+                <Button Style="{StaticResource ButtonTheme}"
+                        Click="edit"
+                        Margin="5"
+                        Width="200"
+                        Content="Редактировать"/>
+                <Button Style="{StaticResource ButtonTheme}"
+                        Click="exit"
+                        Margin="5"
+                        Width="200"
+                        Content="Назад"/>
             </StackPanel>
-        </StackPanel>
-        
+        </Border>
+        <Border Grid.Column="1"
+                Margin="5,10,5,10">
+            <DataGrid Style="{DynamicResource GridStyle}"  
+                      x:Name="DG" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Тип"
+                                        Width="*"
+                                        Binding="{Binding type}"/>
+                    <DataGridTextColumn Header="Размер"
+                                        Width="*"
+                                        Binding="{Binding cost}"/>
+                    <DataGridTextColumn Header="Семестр"
+                                        Width="*"
+                                        Binding="{Binding term}"/>
+                    <DataGridTextColumn Header="Учебный год"
+                                        Width="*"
+                                        Binding="{Binding academ_year}"/>
+                    
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
     </Grid>
 </Page>
