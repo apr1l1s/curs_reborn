@@ -1,0 +1,115 @@
+﻿<Page x:Class="curs_reborn.Pages.editPages.marksPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:curs_reborn.Pages.editPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="marksPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="0" 
+                Height="240"
+                Width="200"
+                VerticalAlignment="Top">
+            <StackPanel>
+                <TextBlock Text="Номер студента" 
+                           Margin="0,5,0,0"
+                           Foreground="{DynamicResource DefaultTextColor}"/>
+                <TextBox x:Name="IdStBox"
+                         Height="30"
+                         Foreground="{DynamicResource DefaultTextColor}"
+                         BorderBrush="{DynamicResource DefaultBorderColor}"
+                         BorderThickness="2"
+                         Background="{DynamicResource AlterColor}"
+                         Template="{DynamicResource TextBoxTemplate}"/>
+                <TextBlock Text="Номер предмета" 
+                           Margin="0,5,0,0"
+                           Foreground="{DynamicResource DefaultTextColor}"/>
+                <TextBox x:Name="IdSjBox"
+                         Height="30"
+                         Foreground="{DynamicResource DefaultTextColor}"
+                         BorderBrush="{DynamicResource DefaultBorderColor}"
+                         BorderThickness="2"
+                         Background="{DynamicResource AlterColor}"
+                         Template="{DynamicResource TextBoxTemplate}"/>
+                <TextBlock Text="Семестр" 
+                           Margin="0,5,0,0"
+                           Foreground="{DynamicResource DefaultTextColor}"/>
+                <TextBox x:Name="TermBox"
+                         Height="30"
+                         Foreground="{DynamicResource DefaultTextColor}"
+                         BorderBrush="{DynamicResource DefaultBorderColor}"
+                         BorderThickness="2"
+                         Background="{DynamicResource AlterColor}"
+                         Template="{DynamicResource TextBoxTemplate}"/>
+                <TextBlock Text="Оценка" 
+                           Margin="0,5,0,0"
+                           Foreground="{DynamicResource DefaultTextColor}"/>
+                <TextBox x:Name="MarkBox"
+                         Height="30"
+                         Foreground="{DynamicResource DefaultTextColor}"
+                         BorderBrush="{DynamicResource DefaultBorderColor}"
+                         BorderThickness="2"
+                         Background="{DynamicResource AlterColor}"
+                         Template="{DynamicResource TextBoxTemplate}"/>
+                <Button Style="{StaticResource ButtonTheme}"
+                        Click="save"
+                        Width="200"
+                        Margin="0,5,0,0"
+                        Content="Сохранить"/>
+            </StackPanel>
+        </Border>
+        <Border Grid.Column="0"
+                VerticalAlignment="Bottom" 
+                Margin="10">
+            <StackPanel Width="220">
+                <Button Style="{StaticResource ButtonTheme}"
+                        Click="add"
+                        Margin="8"
+                        Width="200"
+                        Content="Добавить"/>
+                <Button Style="{StaticResource ButtonTheme}"
+                        Click="del"
+                        Margin="8"
+                        Width="200"
+                        Content="Удалить"/>
+                <Button Style="{StaticResource ButtonTheme}"
+                        Click="edit"
+                        Margin="8"
+                        Width="200"
+                        Content="Редактировать"/>
+                <Button Style="{StaticResource ButtonTheme}"
+                        Click="exit"
+                        Margin="8"
+                        Width="200"
+                        Content="Назад"/>
+            </StackPanel>
+        </Border>
+        <Border Grid.Column="1"
+                Margin="5,10,5,10">
+            <DataGrid Style="{DynamicResource GridStyle}"  
+                      x:Name="DG" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Студент"
+                                        Width="*"
+                                        Binding="{Binding student_id}"/>
+                    <DataGridTextColumn Header="Предмет"
+                                        Width="*"
+                                        Binding="{Binding subject_id}"/>
+                    <DataGridTextColumn Header="Семестр"
+                                        Width="*"
+                                        Binding="{Binding term}"/>
+                    <DataGridTextColumn Header="Оценка"
+                                        Width="*"
+                                        Binding="{Binding mark1}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+    </Grid>
+</Page>

@@ -20,7 +20,7 @@ namespace curs_reborn.Pages
         }
         public void fillCB()
         {
-            List<string> tables = new List<string>() { "Пользователи","Группы","Студенты","Стипендии","Оценки","История","Предметы" };
+            List<string> tables = new List<string>() { "Пользователи","Группы","Студенты","Стипендии","Оценки","История","Предметы","Документы" };
             CB.ItemsSource = tables;
 
         }
@@ -47,8 +47,18 @@ namespace curs_reborn.Pages
                     case 3:
                         mainWindow.openPage(MainWindow.pages.grants);
                         break;
+                    case 4:
+                        mainWindow.openPage(MainWindow.pages.marks);
+                        break;
+                    case 5:
+                        MessageBox.Show("Нереализованно!");
+                        //mainWindow.openPage(MainWindow.pages.histories);
+                        break;
                     case 6:
                         mainWindow.openPage(MainWindow.pages.subjects);
+                        break;
+                    case 7:
+                        mainWindow.openPage(MainWindow.pages.documents);
                         break;
 
                 }
